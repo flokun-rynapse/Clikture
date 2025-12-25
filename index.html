@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clikture</title>
+    <link rel="shortcut icon" href="Logo white.png" type="image/x-icon">
+    
+    <style>
+        /* General Page Setup */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #050505 url('bg.png') no-repeat center center fixed; 
+            background-size: cover;
+            color: white;
+            overflow-x: hidden;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .logo-container img {
+            width: 50%;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+        }
+
+        /* Button Group Container */
+        .container {
+            display: flex;
+            gap: 80px;
+        }
+
+        /* The Base Button Styling */
+        .btn {
+            position: relative;
+            padding: 15px 45px;
+            text-decoration: none;
+            letter-spacing: 3px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            border-radius: 50px; 
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            display: inline-block;
+            
+            /* Crucial: Creates a 3D stacking context */
+            transform-style: preserve-3d;
+            z-index: 1;
+        }
+
+        /* Transparency & Glow on Hover */
+        .btn:hover {
+            background: black; 
+            border-color: transparent;
+            box-shadow: 0 0 30px currentColor;
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        /* Horizontal Crosshair Line */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -30px;
+            right: -30px;
+            height: 2px;
+            background: currentColor;
+            opacity: 0;
+            /* translateZ(-1px) pushes the line behind the button face */
+            transform: translateY(-50%) scaleX(0) translateZ(-1px);
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+
+        /* Vertical Crosshair Line */
+        .btn::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: -20px;
+            bottom: -20px;
+            width: 2px;
+            background: currentColor;
+            opacity: 0;
+            /* translateZ(-1px) pushes the line behind the button face */
+            transform: translateX(-50%) scaleY(0) translateZ(-1px);
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+
+        /* Show Lines on Hover */
+        .btn:hover::before {
+            opacity: 1;
+            transform: translateY(-50%) scaleX(1) translateZ(-1px);
+        }
+
+        .btn:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) scaleY(1) translateZ(-1px);
+        }
+
+        /* Click Shrink Effect */
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Individual Button Colors */
+        .btn-blue { color: #00fbff; }
+        .btn-green { color: #39ff14; }
+        .btn-red { color: red; }
+
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <img src="Logo white.png" alt="Clikture Logo">
+    </div>
+<br><br>
+    <div class="container">
+        <a href="#" class="btn btn-blue">Home</a>
+        <a href="#" class="btn btn-green">Designs</a>
+        <a href="#" class="btn btn-red">Library</a>
+    </div>
+
+</body>
+</html>
